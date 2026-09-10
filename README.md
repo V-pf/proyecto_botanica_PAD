@@ -1,2 +1,2 @@
-# proyecto_botanica_PAD
-este es el repositorio que guardara la informacion tanto de nuestro proceso scrum al crear nuestra pagina, como de la propia pagina
+# Proyecto_botanica_PAD
+Este repositorio cumple la función de almacenar la información de avance (Scrum) del proyecto 'Botánica' y el desarrollo de nuestra página.
