@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi cuenta | Skins PAD</title>
+    <meta name="description" content="Panel del comprador: resumen de actividad, compras y billetera.">
+    <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/estilos.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
+    <header class="sitio-header sticky-top">
+      <nav class="navbar navbar-expand-lg" aria-label="Menú principal">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center gap-2" href="../home.html"><img src="../img/logo.svg" alt="" width="32" height="32">Skins PAD</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="menu-principal">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item"><a class="nav-link" href="../catalogo.html">Catálogo</a></li>
+              <li class="nav-item"><a class="nav-link" href="../categorias.html">Categorías</a></li>
+              <li class="nav-item"><a class="nav-link" href="../cliente/vender.html">Vender</a></li>
+              <li class="nav-item"><a class="nav-link" href="../contacto.html">Contacto y ayuda</a></li>
+            </ul>
+            <form class="d-flex my-2 my-lg-0 me-lg-3" role="search" action="../catalogo.html" method="get">
+              <label class="visually-hidden" for="buscar-cabecera">Buscar una skin</label>
+              <input class="form-control form-control-sm me-2" type="search" id="buscar-cabecera" name="q" maxlength="40" placeholder="Buscar: AK-47, Karambit...">
+              <button class="btn btn-sm btn-outline-light" type="submit">Buscar</button>
+            </form>
+            <ul class="navbar-nav align-items-lg-center">
+              <li class="nav-item"><a class="nav-link" href="../cliente/carrito.html">Carrito <span class="badge text-bg-warning">3</span></a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mi cuenta</a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="../login.html">Ingresar</a></li>
+                  <li><a class="dropdown-item" href="../registro.html">Crear cuenta</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../cliente/panel.html">Demo: panel de cliente</a></li>
+                  <li><a class="dropdown-item" href="../admin/panel.html">Demo: panel de administrador</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="contenido" class="container py-4">
+      <nav aria-label="Migas de pan" class="mb-3"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../home.html">Inicio</a></li><li class="breadcrumb-item active" aria-current="page">Mi cuenta</li></ol></nav>
+      <div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
+        <div>
+          <h1 class="mb-1">Hola, penquista_gamer</h1>
+          <p class="text-body-secondary mb-0">Este es un panel de demostración: los datos son de ejemplo.</p>
+        </div>
+        <span class="badge text-bg-secondary align-self-center">Cuenta sin verificar</span>
+      </div>
+
+      <div class="row g-3 mb-5">
+        <div class="col-6 col-lg-3"><dl class="stat-tile mb-0"><dt>Compras realizadas</dt><dd>7</dd></dl></div>
+        <div class="col-6 col-lg-3"><dl class="stat-tile mb-0"><dt>En camino</dt><dd>1</dd></dl></div>
+        <div class="col-6 col-lg-3"><dl class="stat-tile mb-0"><dt>En el carrito</dt><dd>3</dd></dl></div>
+        <div class="col-6 col-lg-3"><dl class="stat-tile mb-0"><dt>Saldo en billetera</dt><dd>$12.500</dd></dl></div>
+      </div>
+
+      <div class="row g-4">
+        <aside class="col-lg-3">
+          <h2 class="h6 text-body-secondary">Mi cuenta</h2>
+          <nav aria-label="Mi cuenta"><div class="list-group"><a class="list-group-item list-group-item-action active" href="panel.html" aria-current="page">Resumen</a><a class="list-group-item list-group-item-action" href="pedidos.html">Mis compras</a><a class="list-group-item list-group-item-action" href="carrito.html">Carrito</a><a class="list-group-item list-group-item-action" href="vender.html">Vender una skin</a><span class="list-group-item disabled" aria-disabled="true">Mis publicaciones <small>(próximamente)</small></span><span class="list-group-item disabled" aria-disabled="true">Billetera y retiros <small>(próximamente)</small></span><span class="list-group-item disabled" aria-disabled="true">Verificación de identidad <small>(próximamente)</small></span><span class="list-group-item disabled" aria-disabled="true">Favoritos <small>(próximamente)</small></span></div></nav>
+        </aside>
+        <div class="col-lg-9">
+          <section aria-labelledby="tit-actividad" class="mb-5">
+            <h2 id="tit-actividad" class="h5">Actividad reciente</h2>
+            <table class="table align-middle">
+              <caption class="visually-hidden">Actividad reciente de la cuenta</caption>
+              <thead><tr><th scope="col">Fecha</th><th scope="col">Actividad</th><th scope="col">Monto</th><th scope="col">Estado</th></tr></thead>
+              <tbody>
+                <tr><td><time datetime="2026-09-18">18 sep 2026</time></td><td>Compra: AWP | Asiimov</td><td>$64.990</td><td><span class="badge text-bg-warning">Esperando intercambio</span></td></tr>
+                <tr><td><time datetime="2026-09-12">12 sep 2026</time></td><td>Compra: USP-S | Kill Confirmed</td><td>$42.500</td><td><span class="badge text-bg-success">Entregado</span></td></tr>
+                <tr><td><time datetime="2026-09-05">05 sep 2026</time></td><td>Depósito a billetera</td><td>$20.000</td><td><span class="badge text-bg-success">Completado</span></td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section aria-labelledby="tit-recomendado">
+            <h2 id="tit-recomendado" class="h5">Basado en tus compras</h2>
+            <ul class="row row-cols-1 row-cols-sm-3 g-4 list-unstyled">
+              <li class="col" data-producto data-nombre="M4A1-S | Cyrex" data-tipo="rifle" data-grado="clasificado" data-desgaste="mw" data-precio="17990" data-stattrak="0" data-orden="0">
+                <article class="card producto grado-clasificado h-100">
+                  <figure class="producto-figura m-0">
+                    <img src="../img/arma-rifle.svg" alt="Ilustración de ejemplo de M4A1-S | Cyrex" width="320" height="200" loading="lazy">
+                    <figcaption><span class="badge-grado">Clasificado</span></figcaption>
+                  </figure>
+                  <div class="card-body d-flex flex-column">
+                    <h3 class="h6 card-title mb-1">M4A1-S | Cyrex</h3>
+                    <p class="small text-body-secondary mb-2">Poco usado, float 0,1024</p>
+                    <p class="precio fs-4 mt-auto mb-2">$17.990</p>
+                    <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="../detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="../cliente/carrito.html">Agregar</a></div>
+                  </div>
+                </article>
+              </li>
+              <li class="col" data-producto data-nombre="MP9 | Hot Rod" data-tipo="subfusil" data-grado="clasificado" data-desgaste="fn" data-precio="8990" data-stattrak="0" data-orden="1">
+                <article class="card producto grado-clasificado h-100">
+                  <figure class="producto-figura m-0">
+                    <img src="../img/arma-subfusil.svg" alt="Ilustración de ejemplo de MP9 | Hot Rod" width="320" height="200" loading="lazy">
+                    <figcaption><span class="badge-grado">Clasificado</span></figcaption>
+                  </figure>
+                  <div class="card-body d-flex flex-column">
+                    <h3 class="h6 card-title mb-1">MP9 | Hot Rod</h3>
+                    <p class="small text-body-secondary mb-2">Recién fabricado, float 0,0455</p>
+                    <p class="precio fs-4 mt-auto mb-2">$8.990</p>
+                    <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="../detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="../cliente/carrito.html">Agregar</a></div>
+                  </div>
+                </article>
+              </li>
+              <li class="col" data-producto data-nombre="Desert Eagle | Blaze" data-tipo="pistola" data-grado="restringido" data-desgaste="fn" data-precio="389990" data-stattrak="0" data-orden="2">
+                <article class="card producto grado-restringido h-100">
+                  <figure class="producto-figura m-0">
+                    <img src="../img/arma-pistola.svg" alt="Ilustración de ejemplo de Desert Eagle | Blaze" width="320" height="200" loading="lazy">
+                    <figcaption><span class="badge-grado">Restringido</span></figcaption>
+                  </figure>
+                  <div class="card-body d-flex flex-column">
+                    <h3 class="h6 card-title mb-1">Desert Eagle | Blaze</h3>
+                    <p class="small text-body-secondary mb-2">Recién fabricado, float 0,0103</p>
+                    <p class="precio fs-4 mt-auto mb-2">$389.990</p>
+                    <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="../detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="../cliente/carrito.html">Agregar</a></div>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="sitio-footer mt-5 py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-5">
+            <p class="h5 mb-2">Skins PAD</p>
+            <p class="small text-body-secondary mb-0">Marketplace de skins de CS:GO con precios en pesos chilenos. Proyecto académico, sin afiliación con Valve Corporation. Counter-Strike y sus skins son marcas de Valve.</p>
+          </div>
+          <nav class="col-6 col-md-3" aria-label="Enlaces de la tienda">
+            <p class="h6">Tienda</p>
+            <ul class="list-unstyled small mb-0">
+              <li><a href="../catalogo.html">Catálogo</a></li>
+              <li><a href="../categorias.html">Categorías</a></li>
+              <li><a href="../cliente/vender.html">Vender una skin</a></li>
+            </ul>
+          </nav>
+          <nav class="col-6 col-md-4" aria-label="Enlaces de ayuda">
+            <p class="h6">Ayuda</p>
+            <ul class="list-unstyled small mb-0">
+              <li><a href="../contacto.html#preguntas">Preguntas frecuentes</a></li>
+              <li><a href="../contacto.html">Escríbenos</a></li>
+              <li><a href="mailto:soporte@skinspad.example">soporte@skinspad.example</a></li>
+            </ul>
+          </nav>
+        </div>
+        <p class="small text-body-secondary border-top pt-3 mt-4 mb-0">© 2026 Skins PAD. Los nombres, precios, pedidos y usuarios son datos de ejemplo.</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/validaciones.js"></script>
+  </body>
+</html>

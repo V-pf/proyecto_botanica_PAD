@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Catálogo | Skins PAD</title>
+    <meta name="description" content="Filtra skins de CS:GO por tipo de arma, grado de rareza, desgaste y precio.">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/estilos.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <a class="visually-hidden-focusable" href="#contenido">Saltar al contenido</a>
+    <header class="sitio-header sticky-top">
+      <nav class="navbar navbar-expand-lg" aria-label="Menú principal">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center gap-2" href="home.html"><img src="img/logo.svg" alt="" width="32" height="32">Skins PAD</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="menu-principal">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="catalogo.html">Catálogo</a></li>
+              <li class="nav-item"><a class="nav-link" href="categorias.html">Categorías</a></li>
+              <li class="nav-item"><a class="nav-link" href="cliente/vender.html">Vender</a></li>
+              <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto y ayuda</a></li>
+            </ul>
+            <form class="d-flex my-2 my-lg-0 me-lg-3" role="search" action="catalogo.html" method="get">
+              <label class="visually-hidden" for="buscar-cabecera">Buscar una skin</label>
+              <input class="form-control form-control-sm me-2" type="search" id="buscar-cabecera" name="q" maxlength="40" placeholder="Buscar: AK-47, Karambit...">
+              <button class="btn btn-sm btn-outline-light" type="submit">Buscar</button>
+            </form>
+            <ul class="navbar-nav align-items-lg-center">
+              <li class="nav-item"><a class="nav-link" href="cliente/carrito.html">Carrito <span class="badge text-bg-warning">3</span></a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mi cuenta</a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="login.html">Ingresar</a></li>
+                  <li><a class="dropdown-item" href="registro.html">Crear cuenta</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="cliente/panel.html">Demo: panel de cliente</a></li>
+                  <li><a class="dropdown-item" href="admin/panel.html">Demo: panel de administrador</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="contenido" class="container py-4">
+      <nav aria-label="Migas de pan" class="mb-3"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="home.html">Inicio</a></li><li class="breadcrumb-item active" aria-current="page">Catálogo</li></ol></nav>
+      <h1 class="mb-4">Catálogo de skins</h1>
+      <div class="row g-4">
+        <div class="col-lg-3">
+          <form class="filtros" data-form-filtros aria-label="Filtros del catálogo">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h2 class="h6 mb-0">Filtros</h2>
+              <button type="button" class="btn btn-sm btn-link p-0" data-limpiar-filtros>Limpiar</button>
+            </div>
+            <fieldset class="mb-3">
+              <legend>Tipo de arma</legend>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="tipo" id="tipo-rifle" value="rifle"><label class="form-check-label" for="tipo-rifle">Rifles</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="tipo" id="tipo-francotirador" value="francotirador"><label class="form-check-label" for="tipo-francotirador">Francotiradores</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="tipo" id="tipo-pistola" value="pistola"><label class="form-check-label" for="tipo-pistola">Pistolas</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="tipo" id="tipo-subfusil" value="subfusil"><label class="form-check-label" for="tipo-subfusil">Subfusiles</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="tipo" id="tipo-cuchillo" value="cuchillo"><label class="form-check-label" for="tipo-cuchillo">Cuchillos</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="tipo" id="tipo-guantes" value="guantes"><label class="form-check-label" for="tipo-guantes">Guantes</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="tipo" id="tipo-sticker" value="sticker"><label class="form-check-label" for="tipo-sticker">Stickers</label></div>
+            </fieldset>
+            <fieldset class="mb-3">
+              <legend>Grado de rareza</legend>
+              <div class="form-check"><input class="form-check-input" type="checkbox" name="grado" id="grado-consumidor" value="consumidor"><label class="form-check-label" for="grado-consumidor">Grado consumidor</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="grado" id="grado-industrial" value="industrial"><label class="form-check-label" for="grado-industrial">Grado industrial</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="grado" id="grado-militar" value="militar"><label class="form-check-label" for="grado-militar">Grado militar</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="grado" id="grado-restringido" value="restringido"><label class="form-check-label" for="grado-restringido">Restringido</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="grado" id="grado-clasificado" value="clasificado"><label class="form-check-label" for="grado-clasificado">Clasificado</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="grado" id="grado-encubierto" value="encubierto"><label class="form-check-label" for="grado-encubierto">Encubierto</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="grado" id="grado-contrabando" value="contrabando"><label class="form-check-label" for="grado-contrabando">Contrabando</label></div><div class="form-check"><input class="form-check-input" type="checkbox" name="grado" id="grado-especial" value="especial"><label class="form-check-label" for="grado-especial">Especial ★</label></div>
+            </fieldset>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="solo-stattrak" name="solo-stattrak">
+              <label class="form-check-label" for="solo-stattrak">Solo StatTrak™</label>
+            </div>
+            <div class="mb-1">
+              <label for="precio-max" class="form-label">Precio máximo</label>
+              <input type="range" class="form-range" id="precio-max" name="precio-max" min="0" max="4000000" step="10000" value="0">
+              <output for="precio-max" class="small text-body-secondary" id="precio-max-out">Sin límite</output>
+            </div>
+          </form>
+          <aside class="mt-4">
+            <h2 class="h6">¿Buscas algo específico?</h2>
+            <p class="small text-body-secondary">Escribe el nombre del arma y el patrón en el buscador de arriba, por ejemplo "AK-47 Redline" o "Karambit".</p>
+          </aside>
+        </div>
+
+        <div class="col-lg-9">
+          <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+            <label class="visually-hidden" for="buscar-catalogo">Buscar dentro del catálogo</label>
+            <input type="search" class="form-control" style="max-width:320px" id="buscar-catalogo" placeholder="Buscar por nombre...">
+            <div class="d-flex align-items-center gap-2">
+              <span data-contador-resultados class="small text-body-secondary">12 resultados</span>
+              <label class="visually-hidden" for="orden-catalogo">Ordenar</label>
+              <select class="form-select form-select-sm" id="orden-catalogo" style="width:auto">
+                <option value="relevancia">Más relevantes</option>
+                <option value="precio-asc">Precio: menor a mayor</option>
+                <option value="precio-desc">Precio: mayor a menor</option>
+                <option value="nombre">Nombre A-Z</option>
+              </select>
+            </div>
+          </div>
+          <p class="alert alert-secondary d-none" data-sin-resultados>No encontramos skins con esos filtros. Prueba quitando alguno.</p>
+          <ul class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-4 list-unstyled" data-lista-productos>
+            <li class="col" data-producto data-nombre="AK-47 | Redline" data-tipo="rifle" data-grado="clasificado" data-desgaste="ft" data-precio="28990" data-stattrak="0" data-orden="0">
+              <article class="card producto grado-clasificado h-100">
+                <figure class="producto-figura m-0">
+                  <img src="img/arma-rifle.svg" alt="Ilustración de ejemplo de AK-47 | Redline" width="320" height="200" loading="lazy">
+                  <figcaption><span class="badge-grado">Clasificado</span></figcaption>
+                </figure>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 card-title mb-1">AK-47 | Redline</h3>
+                  <p class="small text-body-secondary mb-2">Algo desgastado, float 0,2461</p>
+                  <p class="precio fs-4 mt-auto mb-2">$28.990</p>
+                  <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="cliente/carrito.html">Agregar</a></div>
+                </div>
+              </article>
+            </li>
+            <li class="col" data-producto data-nombre="AWP | Asiimov" data-tipo="francotirador" data-grado="encubierto" data-desgaste="ft" data-precio="64990" data-stattrak="1" data-orden="1">
+              <article class="card producto grado-encubierto h-100">
+                <figure class="producto-figura m-0">
+                  <img src="img/arma-francotirador.svg" alt="Ilustración de ejemplo de AWP | Asiimov" width="320" height="200" loading="lazy">
+                  <figcaption><span class="badge-grado">Encubierto</span></figcaption>
+                </figure>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 card-title mb-1">AWP | Asiimov <span class="badge text-bg-warning" title="StatTrak™">ST™</span></h3>
+                  <p class="small text-body-secondary mb-2">Algo desgastado, float 0,2874</p>
+                  <p class="precio fs-4 mt-auto mb-2">$64.990</p>
+                  <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="cliente/carrito.html">Agregar</a></div>
+                </div>
+              </article>
+            </li>
+            <li class="col" data-producto data-nombre="M4A4 | Howl" data-tipo="rifle" data-grado="contrabando" data-desgaste="mw" data-precio="3950000" data-stattrak="1" data-orden="2">
+              <article class="card producto grado-contrabando h-100">
+                <figure class="producto-figura m-0">
+                  <img src="img/arma-rifle.svg" alt="Ilustración de ejemplo de M4A4 | Howl" width="320" height="200" loading="lazy">
+                  <figcaption><span class="badge-grado">Contrabando</span></figcaption>
+                </figure>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 card-title mb-1">M4A4 | Howl <span class="badge text-bg-warning" title="StatTrak™">ST™</span></h3>
+                  <p class="small text-body-secondary mb-2">Poco usado, float 0,0912</p>
+                  <p class="precio fs-4 mt-auto mb-2">$3.950.000</p>
+                  <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="cliente/carrito.html">Agregar</a></div>
+                </div>
+              </article>
+            </li>
+            <li class="col" data-producto data-nombre="USP-S | Kill Confirmed" data-tipo="pistola" data-grado="encubierto" data-desgaste="fn" data-precio="42500" data-stattrak="1" data-orden="3">
+              <article class="card producto grado-encubierto h-100">
+                <figure class="producto-figura m-0">
+                  <img src="img/arma-pistola.svg" alt="Ilustración de ejemplo de USP-S | Kill Confirmed" width="320" height="200" loading="lazy">
+                  <figcaption><span class="badge-grado">Encubierto</span></figcaption>
+                </figure>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 card-title mb-1">USP-S | Kill Confirmed <span class="badge text-bg-warning" title="StatTrak™">ST™</span></h3>
+                  <p class="small text-body-secondary mb-2">Recién fabricado, float 0,0512</p>
+                  <p class="precio fs-4 mt-auto mb-2">$42.500</p>
+                  <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="cliente/carrito.html">Agregar</a></div>
+                </div>
+              </article>
+            </li>
+            <li class="col" data-producto data-nombre="Glock-18 | Fade" data-tipo="pistola" data-grado="restringido" data-desgaste="fn" data-precio="189990" data-stattrak="0" data-orden="4">
+              <article class="card producto grado-restringido h-100">
+                <figure class="producto-figura m-0">
+                  <img src="img/arma-pistola.svg" alt="Ilustración de ejemplo de Glock-18 | Fade" width="320" height="200" loading="lazy">
+                  <figcaption><span class="badge-grado">Restringido</span></figcaption>
+                </figure>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 card-title mb-1">Glock-18 | Fade</h3>
+                  <p class="small text-body-secondary mb-2">Recién fabricado, float 0,0298</p>
+                  <p class="precio fs-4 mt-auto mb-2">$189.990</p>
+                  <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="cliente/carrito.html">Agregar</a></div>
+                </div>
+              </article>
+            </li>
+            <li class="col" data-producto data-nombre="★ Karambit | Doppler" data-tipo="cuchillo" data-grado="especial" data-desgaste="fn" data-precio="1290000" data-stattrak="0" data-orden="5">
+              <article class="card producto grado-especial h-100">
+                <figure class="producto-figura m-0">
+                  <img src="img/arma-cuchillo.svg" alt="Ilustración de ejemplo de ★ Karambit | Doppler" width="320" height="200" loading="lazy">
+                  <figcaption><span class="badge-grado">Especial ★</span></figcaption>
+                </figure>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 card-title mb-1">★ Karambit | Doppler</h3>
+                  <p class="small text-body-secondary mb-2">Recién fabricado, float 0,0121</p>
+                  <p class="precio fs-4 mt-auto mb-2">$1.290.000</p>
+                  <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="cliente/carrito.html">Agregar</a></div>
+                </div>
+              </article>
+            </li>
+            <li class="col" data-producto data-nombre="★ Sport Gloves | Vice" data-tipo="guantes" data-grado="especial" data-desgaste="ft" data-precio="2150000" data-stattrak="0" data-orden="6">
+              <article class="card producto grado-especial h-100">
+                <figure class="producto-figura m-0">
+                  <img src="img/arma-guantes.svg" alt="Ilustración de ejemplo de ★ Sport Gloves | Vice" width="320" height="200" loading="lazy">
+                  <figcaption><span class="badge-grado">Especial ★</span></figcaption>
+                </figure>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 card-title mb-1">★ Sport Gloves | Vice</h3>
+                  <p class="small text-body-secondary mb-2">Algo desgastado, float 0,2203</p>
+                  <p class="precio fs-4 mt-auto mb-2">$2.150.000</p>
+                  <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="cliente/carrito.html">Agregar</a></div>
+                </div>
+              </article>
+            </li>
+            <li class="col" data-producto data-nombre="P250 | Sand Dune" data-tipo="pistola" data-grado="consumidor" data-desgaste="bs" data-precio="190" data-stattrak="0" data-orden="7">
+              <article class="card producto grado-consumidor h-100">
+                <figure class="producto-figura m-0">
+                  <img src="img/arma-pistola.svg" alt="Ilustración de ejemplo de P250 | Sand Dune" width="320" height="200" loading="lazy">
+                  <figcaption><span class="badge-grado">Grado consumidor</span></figcaption>
+                </figure>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 card-title mb-1">P250 | Sand Dune</h3>
+                  <p class="small text-body-secondary mb-2">Deplorable, float 0,5710</p>
+                  <p class="precio fs-4 mt-auto mb-2">$190</p>
+                  <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="cliente/carrito.html">Agregar</a></div>
+                </div>
+              </article>
+            </li>
+            <li class="col" data-producto data-nombre="M4A1-S | Cyrex" data-tipo="rifle" data-grado="clasificado" data-desgaste="mw" data-precio="17990" data-stattrak="0" data-orden="8">
+              <article class="card producto grado-clasificado h-100">
+                <figure class="producto-figura m-0">
+                  <img src="img/arma-rifle.svg" alt="Ilustración de ejemplo de M4A1-S | Cyrex" width="320" height="200" loading="lazy">
+                  <figcaption><span class="badge-grado">Clasificado</span></figcaption>
+                </figure>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 card-title mb-1">M4A1-S | Cyrex</h3>
+                  <p class="small text-body-secondary mb-2">Poco usado, float 0,1024</p>
+                  <p class="precio fs-4 mt-auto mb-2">$17.990</p>
+                  <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="cliente/carrito.html">Agregar</a></div>
+                </div>
+              </article>
+            </li>
+            <li class="col" data-producto data-nombre="MP9 | Hot Rod" data-tipo="subfusil" data-grado="clasificado" data-desgaste="fn" data-precio="8990" data-stattrak="0" data-orden="9">
+              <article class="card producto grado-clasificado h-100">
+                <figure class="producto-figura m-0">
+                  <img src="img/arma-subfusil.svg" alt="Ilustración de ejemplo de MP9 | Hot Rod" width="320" height="200" loading="lazy">
+                  <figcaption><span class="badge-grado">Clasificado</span></figcaption>
+                </figure>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 card-title mb-1">MP9 | Hot Rod</h3>
+                  <p class="small text-body-secondary mb-2">Recién fabricado, float 0,0455</p>
+                  <p class="precio fs-4 mt-auto mb-2">$8.990</p>
+                  <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="cliente/carrito.html">Agregar</a></div>
+                </div>
+              </article>
+            </li>
+            <li class="col" data-producto data-nombre="Sticker | Crown (Foil)" data-tipo="sticker" data-grado="contrabando" data-desgaste="na" data-precio="1590000" data-stattrak="0" data-orden="10">
+              <article class="card producto grado-contrabando h-100">
+                <figure class="producto-figura m-0">
+                  <img src="img/arma-sticker.svg" alt="Ilustración de ejemplo de Sticker | Crown (Foil)" width="320" height="200" loading="lazy">
+                  <figcaption><span class="badge-grado">Contrabando</span></figcaption>
+                </figure>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 card-title mb-1">Sticker | Crown (Foil)</h3>
+                  <p class="small text-body-secondary mb-2">Sin desgaste</p>
+                  <p class="precio fs-4 mt-auto mb-2">$1.590.000</p>
+                  <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="cliente/carrito.html">Agregar</a></div>
+                </div>
+              </article>
+            </li>
+            <li class="col" data-producto data-nombre="Desert Eagle | Blaze" data-tipo="pistola" data-grado="restringido" data-desgaste="fn" data-precio="389990" data-stattrak="0" data-orden="11">
+              <article class="card producto grado-restringido h-100">
+                <figure class="producto-figura m-0">
+                  <img src="img/arma-pistola.svg" alt="Ilustración de ejemplo de Desert Eagle | Blaze" width="320" height="200" loading="lazy">
+                  <figcaption><span class="badge-grado">Restringido</span></figcaption>
+                </figure>
+                <div class="card-body d-flex flex-column">
+                  <h3 class="h6 card-title mb-1">Desert Eagle | Blaze</h3>
+                  <p class="small text-body-secondary mb-2">Recién fabricado, float 0,0103</p>
+                  <p class="precio fs-4 mt-auto mb-2">$389.990</p>
+                  <div class="d-flex gap-2"><a class="btn btn-sm btn-outline-light flex-fill" href="detalle-producto.html">Ver detalle</a><a class="btn btn-sm btn-primary flex-fill" href="cliente/carrito.html">Agregar</a></div>
+                </div>
+              </article>
+            </li>
+          </ul>
+          <nav aria-label="Paginación de resultados" class="mt-4">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled"><span class="page-link">Anterior</span></li>
+              <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="sitio-footer mt-5 py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-5">
+            <p class="h5 mb-2">Skins PAD</p>
+            <p class="small text-body-secondary mb-0">Marketplace de skins de CS:GO con precios en pesos chilenos. Proyecto académico, sin afiliación con Valve Corporation. Counter-Strike y sus skins son marcas de Valve.</p>
+          </div>
+          <nav class="col-6 col-md-3" aria-label="Enlaces de la tienda">
+            <p class="h6">Tienda</p>
+            <ul class="list-unstyled small mb-0">
+              <li><a href="catalogo.html">Catálogo</a></li>
+              <li><a href="categorias.html">Categorías</a></li>
+              <li><a href="cliente/vender.html">Vender una skin</a></li>
+            </ul>
+          </nav>
+          <nav class="col-6 col-md-4" aria-label="Enlaces de ayuda">
+            <p class="h6">Ayuda</p>
+            <ul class="list-unstyled small mb-0">
+              <li><a href="contacto.html#preguntas">Preguntas frecuentes</a></li>
+              <li><a href="contacto.html">Escríbenos</a></li>
+              <li><a href="mailto:soporte@skinspad.example">soporte@skinspad.example</a></li>
+            </ul>
+          </nav>
+        </div>
+        <p class="small text-body-secondary border-top pt-3 mt-4 mb-0">© 2026 Skins PAD. Los nombres, precios, pedidos y usuarios son datos de ejemplo.</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/validaciones.js"></script><script src="js/catalogo.js"></script>
+    <script>
+      document.getElementById('precio-max').addEventListener('input', function () {
+      var out = document.getElementById('precio-max-out');
+      out.textContent = this.value == 0 ? 'Sin límite' : '$' + Number(this.value).toLocaleString('es-CL');
+      });
+    </script>
+  </body>
+</html>

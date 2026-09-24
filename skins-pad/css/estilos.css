@@ -1,0 +1,227 @@
+/* Skins PAD — estilos propios.
+   Bootstrap ya nos da la grilla, los botones, el navbar, etc, entonces este
+   archivo es chico a proposito: aca solo va lo que hace que la pagina se
+   vea "de skins" y no como un bootstrap por defecto (colores, tipografia,
+   y el detalle de las franjas de color segun el grado de rareza). */
+
+:root {
+  /* uso variables css (custom properties) para no repetir los mismos
+     colores en 30 partes distintas, asi si despues quiero cambiar el
+     tono dorado lo cambio en un solo lugar y se actualiza en todos lados */
+  --fondo: #11161d;
+  --panel: #171e28;
+  --panel-alto: #1e2732;
+  --linea: #2b3644;
+  --texto: #e7ecf2;
+  --texto-tenue: #93a1b3;
+  --acento: #e3b877; /* dorado latón, como para que recuerde acabados de armas */
+  --acento-oscuro: #b9915d;
+
+  /* estos colores son mas o menos los mismos que usa el juego para cada
+     grado de rareza (de gris = comun, a rojo/dorado = raro). los uso
+     despues como borde de arriba en las tarjetas de producto */
+  --g-consumidor: #8a97a8;
+  --g-industrial: #6fa8d6;
+  --g-militar: #5b8fd6;
+  --g-restringido: #7a5fd0;
+  --g-clasificado: #b34fd6;
+  --g-encubierto: #d94b5f;
+  --g-contrabando: #e3b877;
+  --g-especial: #e3b877;
+
+  --radio: 4px; /* bordes casi rectos, no queria que se viera "redondeado suave" tipo app generica */
+}
+
+* { box-sizing: border-box; }
+
+/* antes tenia aca fuentes traidas de Google Fonts (Barlow Condensed e IBM
+   Plex Sans), pero la pauta pide que el diseño sea solo con CSS externo +
+   Bootstrap, sin depender de otro servicio de internet aparte del CDN de
+   bootstrap. Por eso ahora uso system-ui, que es la fuente que trae cada
+   sistema operativo por defecto (en windows es Segoe UI, en mac es San
+   Francisco, etc), y me apoyo en font-weight/letter-spacing para que los
+   titulos igual se vean con mas caracter aunque sea la fuente del sistema. */
+body {
+  background-color: var(--fondo);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+}
+
+h1, h2, h3, .h1, .h2, .h3, .navbar-brand, .card-title, .precio-hero {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+h1, .h1 { font-weight: 700; font-size: clamp(2rem, 4vw, 3rem); }
+h2, .h2 { font-weight: 700; font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
+h3, .h3 { font-weight: 600; }
+
+a { color: var(--acento); }
+a:hover { color: var(--acento-oscuro); }
+
+.precio, .precio-hero { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--acento); font-weight: 700; }
+
+/* ---------- cabecera ---------- */
+.sitio-header {
+  background: rgba(17, 22, 29, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--linea);
+}
+.navbar-brand { font-size: 1.5rem; font-weight: 700; color: var(--texto); }
+.navbar-brand:hover { color: var(--acento); }
+.nav-link { color: var(--texto-tenue); }
+.nav-link.active, .nav-link:hover { color: var(--texto); }
+
+/* ---------- pie ---------- */
+.sitio-footer {
+  background: var(--panel);
+  border-top: 1px solid var(--linea);
+  color: var(--texto-tenue);
+}
+.sitio-footer a { color: var(--texto-tenue); text-decoration: none; }
+.sitio-footer a:hover { color: var(--acento); }
+
+/* ---------- hero de portada ---------- */
+.hero {
+  background:
+    linear-gradient(180deg, rgba(17,22,29,0.15) 0%, rgba(17,22,29,0.95) 88%),
+    repeating-linear-gradient(120deg, #1a2029 0 2px, transparent 2px 42px);
+  border-bottom: 1px solid var(--linea);
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+.hero-precio-tira {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: .5rem;
+}
+.hero-precio-tira dl { min-width: 150px; margin: 0; }
+.hero-precio-tira dt { color: var(--texto-tenue); font-size: .8rem; }
+.hero-precio-tira dd { font-family: system-ui, sans-serif; font-size: 1.4rem; color: var(--acento); margin: 0; }
+
+/* ---------- tarjetas de producto ---------- */
+.card, .producto {
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  color: var(--texto);
+}
+.producto-figura {
+  position: relative;
+  background: var(--panel-alto);
+  border-bottom: 1px solid var(--linea);
+}
+.producto-figura img { width: 100%; height: auto; display: block; padding: 1rem; }
+.producto-figura figcaption { position: absolute; top: .6rem; left: .6rem; }
+.badge-grado {
+  display: inline-block;
+  font-size: .68rem;
+  padding: .2rem .5rem;
+  border-radius: 2px;
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  color: var(--texto-tenue);
+}
+/* Esta es la parte que mas me costo decidir como hacer: necesitaba que cada
+   tarjeta mostrara de un vistazo el grado de rareza sin tener que leer el
+   texto. Lo mas simple que se me ocurrio fue pintar el borde de arriba con
+   el color del grado (ver las variables --g-* de mas arriba). Cada clase
+   .grado-X se agrega dinamicamente desde python segun el producto. */
+.producto { border-top: 3px solid var(--g-consumidor); }
+.grado-consumidor { border-top-color: var(--g-consumidor); }
+.grado-industrial { border-top-color: var(--g-industrial); }
+.grado-militar { border-top-color: var(--g-militar); }
+.grado-restringido { border-top-color: var(--g-restringido); }
+.grado-clasificado { border-top-color: var(--g-clasificado); }
+.grado-encubierto { border-top-color: var(--g-encubierto); }
+.grado-contrabando { border-top-color: var(--g-contrabando); }
+.grado-especial { border-top-color: var(--g-especial); }
+
+.card-title a { color: var(--texto); text-decoration: none; }
+
+/* ---------- filtros ---------- */
+.filtros { background: var(--panel); border: 1px solid var(--linea); border-radius: var(--radio); padding: 1.25rem; }
+.filtros legend { font-size: .85rem; color: var(--texto-tenue); text-transform: none; }
+
+/* ---------- formularios ---------- */
+.form-control, .form-select {
+  background: var(--panel-alto);
+  border: 1px solid var(--linea);
+  color: var(--texto);
+}
+.form-control:focus, .form-select:focus {
+  background: var(--panel-alto);
+  color: var(--texto);
+  border-color: var(--acento);
+  box-shadow: 0 0 0 .2rem rgba(227, 184, 119, .25);
+}
+.form-control::placeholder { color: #5c6979; }
+.form-label { color: var(--texto-tenue); }
+.form-check-input:checked { background-color: var(--acento); border-color: var(--acento); }
+
+/* estas clases las pone y saca el validaciones.js con javascript puro, no
+   son de bootstrap. Cuando un campo esta mal le agrega is-invalid y ahi
+   recien se muestra el mensajito de error de abajo (que por defecto esta
+   escondido con display:none para que no se vea antes de tocar el campo) */
+.is-invalid { border-color: #e0616f !important; }
+.is-valid { border-color: #5fbf8f !important; }
+.invalid-feedback { display: none; }
+.is-invalid ~ .invalid-feedback, .form-control.is-invalid + .invalid-feedback { display: block; }
+[data-validar] .is-invalid ~ .invalid-feedback,
+[data-validar] .invalid-feedback.d-block { display: block; }
+
+/* barrita que se va llenando y cambiando de color mientras escribis la
+   contraseña en el registro, el ancho y el color los calcula el JS */
+.medidor-clave { height: 6px; border-radius: 3px; background: var(--linea); overflow: hidden; margin-top: .4rem; }
+.medidor-clave > span { display: block; height: 100%; width: 0; background: #e0616f; transition: width .2s ease, background .2s ease; }
+
+/* ---------- detalle de producto ---------- */
+.detalle-figura {
+  background: var(--panel-alto);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+}
+/* esta barra representa el "float" de la skin (va de 0 a 1). el degradado
+   de colores simula los 5 tramos de exterior (fabricado, poco usado, etc).
+   la rayita blanca (.marca) se posiciona con JS segun el float exacto del
+   producto, aca en css solo dejo el degradado de fondo listo */
+.barra-desgaste {
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #4c8f66 0%, #7fae5c 15%, #cbb24a 38%, #c98a4a 62%, #8a3f3f 100%);
+  position: relative;
+}
+.barra-desgaste .marca {
+  position: absolute; top: -4px; width: 3px; height: 18px; background: var(--texto);
+  transform: translateX(-50%); /* asi la rayita queda centrada justo en el punto, no corrida */
+}
+
+/* ---------- paneles cliente / admin ---------- */
+.list-group-item {
+  background: var(--panel);
+  border-color: var(--linea);
+  color: var(--texto-tenue);
+}
+.list-group-item.active { background: var(--acento); border-color: var(--acento); color: #1c1608; }
+.list-group-item.disabled { background: transparent; color: #5c6979; }
+.list-group-item-action:hover { background: var(--panel-alto); color: var(--texto); }
+
+.table { color: var(--texto); }
+.table > :not(caption) > * > * { background: transparent; border-color: var(--linea); color: var(--texto); }
+caption { color: var(--texto-tenue); }
+
+.stat-tile { background: var(--panel); border: 1px solid var(--linea); border-radius: var(--radio); padding: 1rem; }
+.stat-tile dt { color: var(--texto-tenue); font-size: .8rem; }
+.stat-tile dd { font-family: system-ui, sans-serif; font-size: 1.8rem; margin: 0; }
+
+/* ---------- utilidades ---------- */
+.linea-divisoria { border-color: var(--linea); }
+details > summary { cursor: pointer; color: var(--texto); }
+details[open] > summary { color: var(--acento); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
